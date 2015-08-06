@@ -12,5 +12,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/rest/person")
 public class PersonController extends GenericController<Person> {
-
 }

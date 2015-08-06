@@ -12,6 +12,7 @@ import java.util.Map;
 /**
  * Created by hikuley on 21.06.2015.
  */
+
 public abstract class GenericController<T extends BaseEntity> implements IGenericController<T> {
 
     @Autowired

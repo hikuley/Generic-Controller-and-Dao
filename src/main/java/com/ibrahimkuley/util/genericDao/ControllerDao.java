@@ -3,6 +3,7 @@ package com.ibrahimkuley.util.genericDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.GenericTypeResolver;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -13,8 +14,18 @@ public class ControllerDao<T extends BaseEntity> implements IControllerDao<T> {
     @Autowired
     private SessionFactory sessionFactory;
 
+    private Class<T> clazz;
+
     private Session getSession() {
         return sessionFactory.getCurrentSession();
+    }
+
+    public ControllerDao() {
+        this.clazz = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), IControllerDao.class);
+    }
+
+    public Class<T> getClazz() {
+        return clazz;
     }
 
     @Override

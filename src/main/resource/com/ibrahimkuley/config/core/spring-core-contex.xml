@@ -1,50 +1,4 @@
-<<<<<<< HEAD:src/main/resource/com/ibrahimkuley/config/core/spring-core-contex.xml
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--Spring Hibernate Configuration-->
-    <context:annotation-config/>
-    <tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
-    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/generic-dao"/>
-        <property name="username" value="root"/>
-        <property name="password" value=""/>
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    </bean>
-
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="datasource"/>
-        <property name="packagesToScan" value="com.ibrahimkuley"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-
-                <prop key="hibernate.connection.useUnicode">true</prop>
-                <prop key="hibernate.connection.CharSet">utf8</prop>
-                <prop key="hibernate.connection.characterEncoding">utf8</prop>
-            </props>
-        </property>
-    </bean>
-
-    <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <!--Spring Hibernate Configuration-->
-
-
-    <bean id="controllerDao" class="com.ibrahimkuley.util.genericDao.ControllerDao">
-
-    </bean>
-
-    <bean id="genericController" class="com.ibrahimkuley.util.genericController.GenericController" abstract="true">
-
-    </bean>
-=======
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
@@ -85,7 +39,8 @@
 	</bean>
 	<!--Spring Hibernate Configuration -->
 
-	<bean class="com.ibrahimkuley.dao.PersonDAOImpl" id="dao" />
->>>>>>> origin/master:src/main/resource/spring-contex.xml
+
+
+    <bean id="controllerDao" class="com.ibrahimkuley.util.genericDao.ControllerDao"/>
 
 </beans>
